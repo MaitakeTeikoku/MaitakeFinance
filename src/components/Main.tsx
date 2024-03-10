@@ -14,9 +14,7 @@ function Main() {
   const loadChart = async (): Promise<void> => {
     const url = `https://query2.finance.yahoo.com/v8/finance/chart/${tickerSymbol}.T`
     try {
-      const response = await fetch(url, {
-        mode: "no-cors",
-      });
+      const response = await fetch(url);
       console.log(response);
       const data = await response.json();
       setChart(data);
