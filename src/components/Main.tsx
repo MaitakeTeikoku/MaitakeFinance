@@ -17,6 +17,7 @@ function Main() {
       const response = await fetch(url, {
         mode: "no-cors",
       });
+      console.log(response);
       const data = await response.json();
       setChart(data);
     } catch (error) {
