@@ -10,7 +10,7 @@
     ```
 1. Reactのライブラリをインストール。
     ```bash
-    npm install @mui/joy @emotion/react @emotion/styled
+    npm install @mui/material @emotion/react @emotion/styled
     npm install @mui/icons-material
     npm install react-loader-spinner
     npm install react-cookie
