@@ -53,6 +53,7 @@ function Balance({
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [restartDialogOpen, setRestartDialogOpen] = useState<boolean>(false);
 
+  // リセットボタンが押されたとき、リスタートを実行
   const clickRestart = async () => {
     try {
       setIsRunning(true);
