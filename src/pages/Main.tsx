@@ -26,11 +26,11 @@ function Main(): JSX.Element {
     setIsRunning,
     setConfig,
     setUserData,
+    setUpdateTime,
   } = useStateContext();
   const requests = Requests();
 
   const [tabValue, setTabValue] = useState<string>('balance');
-  const [updateTime, setUpdateTime] = useState<Date | null>(null);
 
   // 画面が読み込まれたとき、ユーザ情報を取得
   useEffect(() => {
@@ -107,16 +107,11 @@ function Main(): JSX.Element {
 
         <Box sx={{ my: 2 }}>
           {tabValue === 'balance' &&
-            <Balance
-              updateTime={updateTime}
-              setUpdateTime={setUpdateTime}
-            />
+            <Balance />
           }
 
           {tabValue === 'search' &&
-            <Search
-              setUpdateTime={setUpdateTime}
-            />
+            <Search />
           }
 
           {tabValue === 'help' &&

@@ -1,8 +1,6 @@
 import { useCookies } from 'react-cookie';
-
 import { useStateContext } from './StateContext';
 import { url } from './Config';
-
 
 function Requests() {
   const [cookies, setCookie] = useCookies(['JWT_TOKEN']);

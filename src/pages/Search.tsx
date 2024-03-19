@@ -11,13 +11,7 @@ import { useStateContext } from '../utils/StateContext';
 import Requests from '../utils/Requests';
 import StockDialog from '../components/StockDialog';
 
-interface SearchProps {
-  setUpdateTime: (updateTime: Date | null) => void;
-}
-
-function Search({
-  setUpdateTime,
-}: SearchProps): JSX.Element {
+function Search(): JSX.Element {
   const {
     setMessage,
     setMessageOpen,
@@ -27,6 +21,7 @@ function Search({
     setConfig,
     userData,
     setUserData,
+    setUpdateTime,
   } = useStateContext();
   const requests = Requests();
 

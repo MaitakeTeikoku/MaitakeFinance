@@ -14,6 +14,8 @@ type State = {
   setConfig: React.Dispatch<React.SetStateAction<{ [key: string]: any } >>;
   userData: { [key: string]: any } ;
   setUserData: React.Dispatch<React.SetStateAction<{ [key: string]: any } >>;
+  updateTime: Date | null;
+  setUpdateTime: React.Dispatch<React.SetStateAction<Date | null>>;
 }
 type StateProviderProps = {
   children: React.ReactNode;
@@ -32,6 +34,8 @@ const StateContext = createContext<State>({
   setConfig: () => { },
   userData: {},
   setUserData: () => { },
+  updateTime: null,
+  setUpdateTime: () => { },
 });
 
 export const StateProvider: React.FC<StateProviderProps> = ({ children }) => {
@@ -63,6 +67,7 @@ export const StateProvider: React.FC<StateProviderProps> = ({ children }) => {
     "totalNetProfit": 0,
     "totalAssets": 0,
   });
+  const [updateTime, setUpdateTime] = useState<Date | null>(null);
 
   const state = {
     message,
@@ -77,6 +82,8 @@ export const StateProvider: React.FC<StateProviderProps> = ({ children }) => {
     setConfig,
     userData,
     setUserData,
+    updateTime,
+    setUpdateTime,
   };
 
   return (
