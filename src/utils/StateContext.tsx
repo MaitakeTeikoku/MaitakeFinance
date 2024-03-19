@@ -40,80 +40,28 @@ export const StateProvider: React.FC<StateProviderProps> = ({ children }) => {
   const [messageSeverity, setMessageSeverity] = useState<Severity>('info');
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [config, setConfig] = useState<{ [key: string]: any }>({
-    "initialBalance": 10000000,
-    "exchangeFee": 1,
-    "tax": 0.20315,
-    "exchangeRate": 148.751,
-    "exchangeRateYest": 148.487,
-    "exchangeRateChange": 0.265,
-    "exchangeRateChangepct": 0.178,
-    "exchangeRateTime": "2024-03-16T08:36:22.353Z",
-    "stockOptions": [
-      {
-       "tickerSymbol": "AAPL",
-       "exchangeSymbol": "NASDAQ",
-       "ticker": "NASDAQ:AAPL",
-       "url": "https://www.google.com/finance/quote/AAPL:NASDAQ",
-       "stockName": "Apple Inc",
-       "stockNameJa": "アップル社",
-       "japan": false
-      },{
-        "tickerSymbol": "GOOG",
-        "exchangeSymbol": "NASDAQ",
-        "ticker": "NASDAQ:GOOG",
-        "url": "https://www.google.com/finance/quote/GOOG:NASDAQ",
-        "stockName": "Alphabet Inc Class C",
-        "stockNameJa": "Alphabet Inc クラス C",
-        "japan": true
-       },
-    ]
+    "initialBalance": 0,
+    "exchangeFee": 0,
+    "tax": 0,
+    "exchangeRate": 0,
+    "exchangeRateYest": 0,
+    "exchangeRateChange": 0,
+    "exchangeRateChangepct": 0,
+    "exchangeRateTime": "",
+    "stockOptions": []
   });
   const [userData, setUserData] = useState<{ [key: string]: any }>({
-    "userName": "a",
-    "date": "2024-03-16T07:33:01.261Z",
-    "balance": 5276701,
-    "stocks": [
-      {
-        "ticker": "NASDAQ:GOOG",
-        "stockNumber": 100,
-        "cost": 2133204,
-        "stockPrice": 142.17,
-        "stockCloseyest": 144.34,
-        "stockPriceJpy": 21190,
-        "stockCloseyestJpy": 21514,
-        "stockChange": -2.17,
-        "stockChangeJpy": -323,
-        "stockChangepct": -1.5,
-        "stockChangepctJpy": -1.5,
-        "amount": 2104770,
-        "profit": -28434,
-        "netProfit": -28434
-      },
-      {
-        "ticker": "NASDAQ:AAPL",
-        "stockNumber": 100,
-        "cost": 2590095,
-        "stockPrice": 172.62,
-        "stockCloseyest": 173,
-        "stockPriceJpy": 25729,
-        "stockCloseyestJpy": 25785,
-        "stockChange": -0.37,
-        "stockChangeJpy": -56,
-        "stockChangepct": -0.21,
-        "stockChangepctJpy": -0.21,
-        "amount": 2555571,
-        "profit": -34524,
-        "netProfit": -34524
-      }
-    ],
-    "ticker": "NASDAQ:AAPL",
-    "stockPrice": 172.62,
-    "stockCloseyest": 173,
-    "totalAmount": 4660341,
-    "totalProfit": -62958,
-    "totalNetProfit": -62958,
-    "totalAssets": 9937042,
-    
+    "userName": "",
+    "date": "",
+    "balance": 0,
+    "stocks": [],
+    "ticker": "",
+    "stockPrice": 0,
+    "stockCloseyest": 0,
+    "totalAmount": 0,
+    "totalProfit": 0,
+    "totalNetProfit": 0,
+    "totalAssets": 0,
   });
 
   const state = {

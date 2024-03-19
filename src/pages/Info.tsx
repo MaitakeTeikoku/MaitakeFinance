@@ -49,7 +49,7 @@ function Info(): JSX.Element {
             variant='caption'
             color='text.secondary'
           >
-            {`${new Date(config.exchangeRateTime)?.toLocaleString('ja-JP')}`}
+            {`${new Date(config?.exchangeRateTime)?.toLocaleString('ja-JP')}`}
           </Typography>
         </Grid>
 
@@ -64,7 +64,7 @@ function Info(): JSX.Element {
               variant='caption'
               color='text.secondary'
             >
-              {`￥ ${config.exchangeRateYest}`}
+              {`￥ ${config?.exchangeRateYest}`}
             </Typography>
           </Grid>
           <Grid item xs={3}>
@@ -78,7 +78,7 @@ function Info(): JSX.Element {
             variant='h5'
             color='text.primary'
           >
-            {`￥ ${config.exchangeRate}`}
+            {`￥ ${config?.exchangeRate}`}
           </Typography>
         </Grid>
 
@@ -89,12 +89,12 @@ function Info(): JSX.Element {
             variant='body2'
             color='text.primary'
           >
-            {`￥ ${config.exchangeRateChange} (${config.exchangeRateChangepct}%)`}
+            {`￥ ${config?.exchangeRateChange} (${config?.exchangeRateChangepct}%)`}
           </Typography>
         </Grid>
         <Grid item xs={1}>
-          {config.exchangeRateChange > 0 ? <TrendingUpIcon color='error' />
-            : config.exchangeRateChange < 0 ? <TrendingDownIcon color='success' />
+          {config?.exchangeRateChange > 0 ? <TrendingUpIcon color='error' />
+            : config?.exchangeRateChange < 0 ? <TrendingDownIcon color='success' />
               : <TrendingFlatIcon color='inherit' />}
         </Grid>
 
@@ -140,11 +140,20 @@ function Info(): JSX.Element {
         </Grid>
 
         <Grid item xs={8}>
+          {`初期の資産： `}
+        </Grid>
+        <Grid item xs={4}>
+          <Typography>
+            {`￥ ${config?.initialBalance?.toLocaleString()}`}
+          </Typography>
+        </Grid>
+
+        <Grid item xs={8}>
           {`＄ 1 当たりの為替手数料： `}
         </Grid>
         <Grid item xs={4}>
           <Typography>
-            {`￥ ${config.exchangeFee}`}
+            {`￥ ${config?.exchangeFee}`}
           </Typography>
         </Grid>
 
@@ -153,7 +162,16 @@ function Info(): JSX.Element {
         </Grid>
         <Grid item xs={4}>
           <Typography>
-            {`${config.tax * 100}%`}
+            {`${config?.tax * 100}%`}
+          </Typography>
+        </Grid>
+
+        <Grid item xs={8}>
+          {`売買できる銘柄数： `}
+        </Grid>
+        <Grid item xs={4}>
+          <Typography>
+            {`${config?.stockOptions?.filter((stock: any) => stock.stockName !== '#N/A').length}`}
           </Typography>
         </Grid>
       </Grid>

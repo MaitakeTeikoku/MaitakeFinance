@@ -12,6 +12,7 @@ import { tabOptions } from '../utils/Config';
 import Balance from './Balance';
 import Search from './Search';
 import Info from './Info';
+import Help from './Help';
 
 function Main(): JSX.Element {
   const {
@@ -50,6 +51,10 @@ function Main(): JSX.Element {
           setConfig(returnValue.data.config);
           setUserData(returnValue.data.userData);
           setUpdateTime(new Date());
+
+          if (returnValue.data.initialize) {
+            setTabValue('help');
+          }
         } else {
           setMessage('サインインしないと結果が保存されません。');
           setMessageSeverity('warning');
@@ -112,6 +117,10 @@ function Main(): JSX.Element {
             <Search
               setUpdateTime={setUpdateTime}
             />
+          }
+
+          {tabValue === 'help' &&
+            <Help />
           }
 
           {tabValue === 'info' &&
