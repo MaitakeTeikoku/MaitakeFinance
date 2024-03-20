@@ -2,6 +2,7 @@ import {
   Grid, Typography, Divider, Button,
 } from '@mui/material';
 import {
+  Home as HomeIcon,
   CurrencyExchange as CurrencyExchangeIcon,
   AccessTime as AccessTimeIcon,
   NavigateNext as NavigateNextIcon,
@@ -20,6 +21,28 @@ function Info(): JSX.Element {
 
   return (
     <div>
+      <Divider />
+
+      <Grid container
+        sx={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          my: 2,
+        }}
+      >
+        <Grid item xs={12}>
+        <Button
+            onClick={() => { window.location.href = 'https://MaitakeTeikoku.github.io/MaitakeAuth'; }}
+            startIcon={<HomeIcon />}
+            color='primary'
+            variant='outlined'
+            fullWidth
+          >
+            {'ホームに戻る'}
+          </Button>
+        </Grid>
+      </Grid>
       <Divider />
 
       <Grid container

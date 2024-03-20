@@ -56,9 +56,10 @@ function Main(): JSX.Element {
             setTabValue('help');
           }
         } else {
-          setMessage('サインインしないと結果が保存されません。');
+          setMessage('ホームに戻ってサインインしてね。');
           setMessageSeverity('warning');
           setMessageOpen(true);
+          setTabValue('info');
           //window.location.href = 'https://MaitakeTeikoku.github.io/MaitakeAuth';
         }
       } catch (error: unknown) {

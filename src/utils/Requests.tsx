@@ -44,7 +44,7 @@ function Requests() {
   const requests = async (paramsList: Record<string, string>) => {
     const cookieJwtToken = getCookieJwtToken();
     if (cookieJwtToken === null) {
-      setMessage('サインインしてください。');
+      setMessage('ホームに戻ってサインインしてね。');
       setMessageSeverity('error');
       setMessageOpen(true);
       //window.location.href = 'https://MaitakeTeikoku.github.io/MaitakeAuth';
