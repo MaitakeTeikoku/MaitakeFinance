@@ -6,7 +6,7 @@ import {
 } from '@mui/icons-material';
 
 // GASのURL
-export const url = 'https://script.google.com/macros/s/AKfycbwf2FZN8_Cnz6_gXpRWMqbn11z0dyIEsoKGLkHIhTSWH_TgSiB-yQ77umPe6D6qiTQr/exec';
+export const url = 'https://script.google.com/macros/s/AKfycbxgIBgUSTPCa6WwS5c4rk0AuANktq_paTiYt3yc4C-WTlezle3KpXj35tsjj4c1a5Q/exec';
 
 // タブの選択肢
 export const tabOptions = [
