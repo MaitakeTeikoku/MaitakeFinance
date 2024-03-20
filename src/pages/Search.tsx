@@ -26,16 +26,10 @@ function Search(): JSX.Element {
   const requests = Requests();
 
   const [dialogOpen, setDialogOpen] = useState<boolean>(false);
-  const [searchedTicker, setSearchedTicker] = useState<string>('');
   const [searchWord, setSearchWord] = useState<string>('');
   const [isOnlyJapan, setIsOnlyJapan] = useState<boolean>(false);
 
   const clickSearch = async (ticker: string) => {
-    if (ticker === searchedTicker) {
-      setDialogOpen(true);
-      return;
-    }
-
     try {
       setIsRunning(true);
 
@@ -53,8 +47,9 @@ function Search(): JSX.Element {
         setConfig(returnValue.data.config);
         setUserData(returnValue.data.userData);
         setUpdateTime(new Date());
-        setSearchedTicker(ticker);
-        setDialogOpen(true);
+        if (returnValue.data.result) {
+          setDialogOpen(true);
+        }
       } else {
         setMessage('サインインしないと結果が保存されません。');
         setMessageSeverity('warning');
@@ -78,7 +73,7 @@ function Search(): JSX.Element {
     }
   };
 
-  const filteredStockOptions = config?.stockOptions
+  const filteredStockOptions: any = config?.stockOptions
     ?.filter((stock: any) => stock.stockName !== '#N/A')
     .filter((stock: any) => {
       if (!searchWord) {
@@ -137,9 +132,6 @@ function Search(): JSX.Element {
           <div key={stock.ticker}>
             <ListItemButton
               onClick={() => clickSearch(stock.ticker)}
-              sx={{
-                bgcolor: stock.ticker === searchedTicker ? 'primary.light' : 'inherit',
-              }}
             >
               <ListItem
                 secondaryAction={<SearchIcon />}
@@ -179,6 +171,7 @@ function Search(): JSX.Element {
       <StockDialog
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
+        ticker={userData?.ticker}
         tickerSymbol={config?.stockOptions?.find((option: any) => option.ticker === userData?.ticker)?.tickerSymbol}
         stockName={config?.stockOptions?.find((option: any) => option.ticker === userData?.ticker)?.stockName}
         stockNumber={userData?.stocks?.find((option: any) => option.ticker === userData?.ticker)?.stockNumber}

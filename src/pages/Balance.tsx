@@ -32,7 +32,7 @@ function Balance(): JSX.Element {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [restartDialogOpen, setRestartDialogOpen] = useState<boolean>(false);
 
-  const clickStock = (index: number) => {
+  const clickStock = (index: number): void => {
     setDialogIndex(index);
     setDialogOpen(true);
   }
@@ -237,6 +237,7 @@ function Balance(): JSX.Element {
       <StockDialog
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
+        ticker={userData?.stocks?.[dialogIndex]?.ticker}
         tickerSymbol={config?.stockOptions?.find((option: any) => option.ticker === userData?.stocks?.[dialogIndex]?.ticker)?.tickerSymbol}
         stockName={config?.stockOptions?.find((option: any) => option.ticker === userData?.stocks?.[dialogIndex]?.ticker)?.stockName}
         stockNumber={userData?.stocks?.[dialogIndex]?.stockNumber}

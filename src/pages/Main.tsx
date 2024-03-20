@@ -61,7 +61,6 @@ function Main(): JSX.Element {
           setMessageOpen(true);
           //window.location.href = 'https://MaitakeTeikoku.github.io/MaitakeAuth';
         }
-
       } catch (error: unknown) {
         if (error instanceof Error) {
           setMessage(error.message);

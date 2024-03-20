@@ -11,7 +11,7 @@ import Requests from '../utils/Requests';
 
 interface RestartDialogProps {
   restartDialogOpen: boolean;
-  setRestartDialogOpen: (dialogOpen: boolean) => void;
+  setRestartDialogOpen: (restartDialogOpen: boolean) => void;
 }
 
 function RestartDialog({
@@ -30,7 +30,7 @@ function RestartDialog({
   const requests = Requests();
 
   // リセットボタンが押されたとき、リスタートを実行
-  const clickRestart = async () => {
+  const clickRestart = async (): Promise<void> => {
     try {
       setIsRunning(true);
 
@@ -47,6 +47,9 @@ function RestartDialog({
         setConfig(returnValue.data.config);
         setUserData(returnValue.data.userData);
         setUpdateTime(new Date());
+        if (returnValue.data.result) {
+          setRestartDialogOpen(false);
+        }
       } else {
         setMessage('サインインしないと結果が保存されません。');
         setMessageSeverity('warning');
