@@ -32,8 +32,7 @@
     ```
 1. コミットしてプッシュ。
     ```bash
-    git add .
-    git commit -m "commit"
+    git commit -am "commit"
     git push
     ```
     * エラーが起きるときは以下を実行してみる。
